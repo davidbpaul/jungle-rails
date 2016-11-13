@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-
+  before_filter :authenticate
   def index
     @categories = Category.order(id: :desc).all
   end
@@ -22,6 +22,12 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.find params[:id]
     @category.destroy
     redirect_to [:admin, :categories], notice: 'Category deleted'
+  end
+  protected
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username === ENV['USERNAME'] && password === ENV['PASSWORD']
+    end
   end
 
   private
