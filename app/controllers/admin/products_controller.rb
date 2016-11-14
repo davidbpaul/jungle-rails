@@ -26,8 +26,13 @@ class Admin::ProductsController < ApplicationController
   protected
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-  username === ENV['USERNAME'] && password === ENV['PASSWORD']
+      puts ENV['USERNAME'], "..."
+      puts ENV['PASSWORD'], "sdad"
+    puts username, "username"
+    puts password, "password"
+    username == ENV['USERNAME'] && password == ENV['PASSWORD']
     end
+    puts "==="
   end
   private
 
