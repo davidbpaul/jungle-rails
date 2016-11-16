@@ -35,7 +35,6 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'stripe'
 gem 'faker'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -46,6 +45,9 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.5'
   gem "shoulda-matchers", require: false
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :development do
